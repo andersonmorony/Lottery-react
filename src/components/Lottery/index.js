@@ -5,16 +5,18 @@ import './styles.css';
 
 class Lottery extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = { manager: '' };
-    }
+    state = {
+        manage: '',
+        players: [],
+        balance: ''
+    };
 
     async componentDidMount() {
         const manager = await lottery.methods.manager().call();
+        const players = await lottery.methods.getPlayers().call();
+        const balance = await web3.eth.getBalance(lottery.options.address);
 
-        this.setState({manager});
+        this.setState({manager, players, balance});
     }
 
     render() {
@@ -22,6 +24,7 @@ class Lottery extends React.Component {
             <div className="div-contract">
                 <h2>Contract Lottery</h2>
                 <p><strong>Manager of this contract:</strong> {this.state.manager}</p>
+                <p>This contract there are {this.state.players.length} actually and had the balance in {web3.utils.fromWei(this.state.balance, 'ether')}</p>
             </div>
         );
     }
