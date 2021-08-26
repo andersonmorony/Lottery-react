@@ -10,6 +10,7 @@ class Lottery extends React.Component {
         players: [],
         balance: '',
         value: '',
+        message: ''
     };
 
     async componentDidMount() {
@@ -25,10 +26,14 @@ class Lottery extends React.Component {
 
         const accounts = await web3.eth.getAccounts();
 
+        this.setState({message: 'Wait wile ours send your transition....'});
+
         await lottery.methods.enter().send({
             from: accounts[0],
             value: web3.utils.toWei(this.state.value, 'ether')
         });
+
+        this.setState({message: 'Transition sended with success'})
 
     };
 
@@ -49,6 +54,10 @@ class Lottery extends React.Component {
                         Entrar
                     </button>
                 </form>
+
+                <hr />
+
+                <h3>{this.state.message}</h3>
 
             </div>
 
