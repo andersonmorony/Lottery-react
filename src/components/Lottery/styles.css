@@ -1,14 +1,35 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: content-box;
-}
-
-.div-contract{
-    width: 900px;
+.lottery{
+    height:80vh;
     margin: 0px auto;
     padding: 20px;
     text-align: center;
-
-    background-color: #b4dfff;
-}
+  
+    color: #fff;
+  }
+  .block{
+    background-color: #1d2839;
+  }
+  .players{
+    margin-left: 5px;
+    padding-top: 10px;
+  }
+  .list-players{
+    overflow: auto;
+    text-align: left;
+    margin-top: 15px;
+    height: 65vh;
+    margin-bottom: 15px;
+  }
+  .list-players > ul > li{
+    margin-top: 15px !important;
+  }
+  .list-players > ul > li > span.text{
+    text-align: right !important;
+  }
+  
+  .enter{
+    padding: 50px;
+  }
+  .enter .btn{
+    margin-top:10px;
+  }
