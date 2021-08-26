@@ -99,9 +99,9 @@ class Lottery extends React.Component {
           {/* <h5>15</h5> */}
           <div className="list-players">
             <ul class="list-group list-group-flush">
-              {this.state.players.map((player) => (
+              {this.state.players.map((player, index) => (
                 <li class="list-group-item">
-                  <span class="badge bg-info rounded-pill">1</span>
+                  <span class="badge bg-info rounded-pill">{index + 1}</span>
                   <span> </span>
                    {player}
                 </li>
